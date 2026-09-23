@@ -2,21 +2,21 @@
 
 namespace JeffersonGoncalves\Filament\Amplitude\Pages;
 
-use Filament\Forms\Components\Section;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\TextInput;
 use Filament\Forms\Components\Toggle;
-use Filament\Forms\Form;
 use Filament\Pages\SettingsPage;
+use Filament\Schemas\Components\Section;
+use Filament\Schemas\Schema;
 use JeffersonGoncalves\Amplitude\Settings\AmplitudeSettings;
 
 class ManageAmplitudeSettings extends SettingsPage
 {
     protected static string $settings = AmplitudeSettings::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-chart-bar-square';
+    protected static string|\BackedEnum|null $navigationIcon = 'heroicon-o-chart-bar-square';
 
-    public static function getNavigationGroup(): ?string
+    public static function getNavigationGroup(): string|\UnitEnum|null
     {
         return __('filament-amplitude::pages.navigation_group');
     }
@@ -31,9 +31,10 @@ class ManageAmplitudeSettings extends SettingsPage
         return __('filament-amplitude::pages.title');
     }
 
-    public function form(Form $form): Form
+    public function form(Schema $schema): Schema
     {
-        return $form
+        return $schema
+            ->columns(null)
             ->schema([
                 Section::make(__('filament-amplitude::pages.sections.project_configuration.heading'))
                     ->description(__('filament-amplitude::pages.sections.project_configuration.description'))

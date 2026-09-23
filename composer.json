@@ -22,12 +22,12 @@
     ],
     "require": {
         "php": "^8.2",
-        "jeffersongoncalves/filament-analytics-core": "^1.0",
+        "jeffersongoncalves/filament-analytics-core": "^2.0",
         "jeffersongoncalves/laravel-amplitude": "^1.0"
     },
     "require-dev": {
         "larastan/larastan": "^3.0",
-        "orchestra/testbench": "^9.0|^10.0"
+        "orchestra/testbench": "^9.0|^10.0|^11.0"
     },
     "autoload": {
         "psr-4": {
@@ -35,7 +35,10 @@
         }
     },
     "scripts": {
-        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "post-autoload-dump": [
+            "@php ./vendor/bin/testbench icons:cache",
+            "@php ./vendor/bin/testbench package:discover --ansi"
+        ],
         "analyse": "vendor/bin/phpstan analyse",
         "format": "vendor/bin/pint"
     },
