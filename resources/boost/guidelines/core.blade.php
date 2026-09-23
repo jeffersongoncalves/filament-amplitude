@@ -6,7 +6,7 @@ Filament plugin for Amplitude analytics with a settings page powered by Spatie L
 
 @verbatim
 <code-snippet name="Install the plugin" lang="bash">
-composer require jeffersongoncalves/filament-amplitude:"^2.0"
+composer require jeffersongoncalves/filament-amplitude:"^3.0"
 php artisan vendor:publish --tag=amplitude-settings-migrations
 php artisan migrate
 </code-snippet>
