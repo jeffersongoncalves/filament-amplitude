@@ -9,6 +9,7 @@ use Filament\Forms\Components\Toggle;
 use Filament\Forms\Form;
 use Filament\Pages\SettingsPage;
 use JeffersonGoncalves\Amplitude\Settings\AmplitudeSettings;
+use JeffersonGoncalves\FilamentAnalyticsCore\AbstractAnalyticsPlugin;
 
 class ManageAmplitudeSettings extends SettingsPage
 {
@@ -18,7 +19,7 @@ class ManageAmplitudeSettings extends SettingsPage
 
     public static function getNavigationGroup(): ?string
     {
-        return __('filament-amplitude::pages.navigation_group');
+        return AbstractAnalyticsPlugin::navigationGroupFor('filament-amplitude') ?? __('filament-amplitude::pages.navigation_group');
     }
 
     public static function getNavigationLabel(): string

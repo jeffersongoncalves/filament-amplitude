@@ -71,6 +71,15 @@ AmplitudePlugin::make()
     ->settingsPage(false),
 ```
 
+### Navigation group
+
+Put the settings page in one of your panel's own navigation groups (a string or a closure):
+
+```php
+AmplitudePlugin::make()
+    ->navigationGroup(fn (): string => __('admin.navigation.settings')),
+```
+
 ## Requirements
 
 - PHP 8.2 or higher
