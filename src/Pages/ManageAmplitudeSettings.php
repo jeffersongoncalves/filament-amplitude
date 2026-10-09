@@ -9,6 +9,7 @@ use Filament\Pages\SettingsPage;
 use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 use JeffersonGoncalves\Amplitude\Settings\AmplitudeSettings;
+use JeffersonGoncalves\FilamentAnalyticsCore\AbstractAnalyticsPlugin;
 
 class ManageAmplitudeSettings extends SettingsPage
 {
@@ -18,7 +19,7 @@ class ManageAmplitudeSettings extends SettingsPage
 
     public static function getNavigationGroup(): string|\UnitEnum|null
     {
-        return __('filament-amplitude::pages.navigation_group');
+        return AbstractAnalyticsPlugin::navigationGroupFor('filament-amplitude') ?? __('filament-amplitude::pages.navigation_group');
     }
 
     public static function getNavigationLabel(): string
